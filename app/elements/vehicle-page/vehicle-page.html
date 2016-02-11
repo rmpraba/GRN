@@ -1,0 +1,124 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="import" href="../../bower_components/iron-a11y-keys/iron-a11y-keys.html">
+<dom-module id="vehicle-page" on-keypress="{{keypress}}">
+  <template>
+    <style is="custom-style">
+      .card{
+        @apply(--layout-vertical);
+        position: relative;
+      //background-color: rgb(255, 255, 255);
+        color: black;
+        width: 80%;
+        left: 35%;
+        margin-top:2%;
+      }
+      paper-input{
+        text-align: left;
+        width: 35%;
+      }
+      paper-button{
+        text-align: center;
+        width: 35%;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 5px 5px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 10px;
+        background-color: #3d6868;
+        color: white;
+        margin-top: 4%;
+      }
+      .topbanner{
+        @apply(--layout-horizontal);
+        margin-left:5%;
+        width: 50%;
+        margin-top: -5%;
+      }
+      .datetitle{
+        margin-left: 28%;
+      }
+      #datetitle{
+        font-size: 13px;
+        color: blue;
+      }
+
+    </style>
+    <iron-a11y-keys target="[[_target]]" keys="enter" on-keys-pressed="_test"></iron-a11y-keys>
+    <div class="datetitle">
+      <paper-item id="datetitle" label="Invoice date" noink>Invoice Date</paper-item>
+    </div>
+    <div class="topbanner">
+      <paper-input label="Invoice Number" value="{{invoiceno}}" style="font-size:15px;" id="invoice" required  error-message="Enter invoice no"></paper-input>
+      <datepicker-card></datepicker-card>
+    </div>
+    <div class="card">
+      <paper-input label="Vehicle Number" name="vehicleno" value="{{vno}}" required  id="vno" error-message="Enter vehicle no"></paper-input>
+      <paper-input label="Vehicle Name" name="vehiclename" value="{{vname}}" required  id="vname" error-message="Enter vehicle name"></paper-input>
+      <paper-input label="Driver Name" name="drivername" value="{{dname}}" required  id="dname" error-message="Enter driver name"></paper-input>
+      <paper-input label="Driver Number" name="driverno" value="{{dno}}" required  id="dno" error-message="Enter driver no"></paper-input>
+      <paper-button on-click="next">Next</paper-button>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      is: "vehicle-page",
+      ready:function()
+      {
+        this.invoiceno=null;
+        this.vehicleno=null;
+        this.vehiclename=null;
+        this.drivername=null;
+        this.driverno=null;
+      },
+      next:function()
+      {
+        this.$.invoice.validate()
+        this.$.vno.validate()
+        //this.$.vname.validate()
+        //this.$.dname.validate()
+        //this.$.dno.validate()
+        if(this.invoiceno==null||this.invoiceno==""||this.vno==null||this.vno==""){
+          //alert("Invoice no should be filled out");
+        }
+        else{
+          document.querySelector('item-page').setVehicleinfo(this.invoiceno,this.vno,this.vname,this.dname,this.dno);
+          document.querySelector('inwardslip-page').setPage('Item Detail');
+        }
+      },
+      _test:function()
+      {
+        this.$.invoice.validate()
+        this.$.vno.validate()
+        //this.$.vname.validate()
+        //this.$.dname.validate()
+        //this.$.dno.validate()
+        if(this.invoiceno==null||this.invoiceno==""||this.vno==null||this.vno==""){
+          //alert("Invoice no should be filled out");
+        }
+        else{
+          document.querySelector('item-page').setVehicleinfo(this.invoiceno,this.vno,this.vname,this.dname,this.dno);
+          document.querySelector('inwardslip-page').setPage('Item Detail');
+        }
+      }
+    });
+
+  </script>
+
+</dom-module>
