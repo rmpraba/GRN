@@ -1,0 +1,44 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="static-service">
+  <template>
+    <iron-ajax
+      id="drawermenureadAjax"
+      url="../../config/drawermenu.json"
+      handle-as="json"
+      content-type="application/json"
+      on-response="drawermenureadResponse">
+    </iron-ajax>
+  </template>
+
+  <script>
+    (function() {
+      Polymer({
+        is: "static-service",
+        ready:function()
+        {
+        },
+        drawermenureadService:function(){
+          this.$.drawermenureadAjax.generateRequest();
+        },
+        drawermenureadResponse:function(e)
+        {
+          var arr=e.detail.response;
+          var sessrole=sessionStorage.getItem("loggedrole");
+          var role=sessrole.substring(sessrole.indexOf(" ")+1);
+          //alert(role);
+          for(var i=0;i<arr.length;i++)
+          {
+            if(arr[i].role==role)
+            {
+              document.querySelector('drawermenu-list').itemArray=arr[i].menu;
+            }
+          }
+          //alert(JSON.stringify(arr));
+          //document.querySelector('physicins-page').itemArray=arr;
+        }
+      });
+    })();
+  </script>
+</dom-module>
