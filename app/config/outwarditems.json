@@ -1,0 +1,12 @@
+{"items":
+[{"name":"steel1","measure":"Coils","unit":"Kg"},
+  {"name":"steel2","measure":"Coils","unit":"Kg"},
+  {"name":"steel3","measure":"Coils","unit":"Kg"},
+  {"name":"lubricant1","measure":"Cane","unit":"Li"},
+  {"name":"lubricant2","measure":"Cane","unit":"Li"},
+  {"name":"lubricant3","measure":"Cane","unit":"Li"},
+  {"name":"lubricant4","measure":"Cane","unit":"Li"},
+  {"name":"sand1","measure":"Bag","unit":"Kg"},
+  {"name":"sand2","measure":"Bag","unit":"Kg"},
+  {"name":"sand3","measure":"Bag","unit":"Kg"}
+]}

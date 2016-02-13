@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="outwarditem-service">
+  <template>
+    <iron-ajax
+      id="seqitemwriteAjax"
+      url="{{sequrl}}"
+      method="post"
+      handle-as="json"
+      content-type="application/json"
+      on-response="seqitemwriteResponse">
+    </iron-ajax>
+    <iron-ajax
+      id="outwarditemwriteAjax"
+      url="{{outwardurl}}"
+      params="{{params}}"
+      method="post"
+      handle-as="json"
+      content-type="application/json"
+      on-response="outwarditemwriteResponse">
+    </iron-ajax>
+  </template>
+  <script src="../../scripts/outwarditem-service.js">
+
+  </script>
+</dom-module>

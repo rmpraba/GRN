@@ -1,0 +1,56 @@
+<!--Importing components-->
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-tab/paper-tab.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../grn-service/grn-service.html">
+<link rel="import" href="../itemlist-card/itemlist-card.html">
+<link rel="import" href="../autocompleteitemlist-card/autocompleteitemlist-card.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<dom-module id="item-card">
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .repeatcard{
+      @apply(--layout-horizontal);
+      width: 130%;
+      overflow: scroll;
+    //margin-top:2%;
+    }
+    paper-input{
+    //width: 35%;
+    //margin-top: -2%;
+      font-size: 8px;
+    //margin-left: 10%;
+    }
+    autocompleteitemlist-card{
+    //margin-top: -2%;
+    }
+  </style>
+  <template>
+    <paper-input name="itemdes" value="{{itemdes}}" style="width: 33%;" hidden></paper-input>
+    <div class="repeatcard">
+      <!--Imorting auto complete item list card-->
+      <autocompleteitemlist-card></autocompleteitemlist-card>
+      <paper-input name="qtyreceived" value="{{qtyreceived}}" style="margin-left:8%;width: 20%;"  required id="qty" on-change="FnInputChanged"></paper-input>
+      <paper-input name="unit" id="input{{id}}" value="{{unit}}" style="margin-left:-5%;width: 5%;" readonly></paper-input>
+      <textarea value="{{comments::input}}" placeholder="Comments..." style="margin-left:6%;width: 22%;height:4%;margin-top:2%;" on-change="FnInputChanged" required="true"></textarea>
+    </div>
+  </template>
+  <!--Importing JS file-->
+  <script src="../../scripts/item-card.js">
+
+  </script>
+
+</dom-module>

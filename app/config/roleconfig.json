@@ -1,0 +1,50 @@
+[
+  {
+    "role": [
+      {
+        "rolename": "Security guard",
+         "RoleFlag": "0"
+      },
+      {
+        "rolename": "Stores manager",
+        "RoleFlag": "1",
+        "status":"Stores",
+        "newstatus":"OldStores",
+        "updatestatus":"Production"
+
+      },
+      {
+        "rolename": "Production manager",
+        "RoleFlag": "2",
+        "status":"Production",
+        "newstatus":"OldProduction",
+        "updatestatus":"Quality"
+
+
+      },
+      {
+        "rolename": "Quality manager",
+        "RoleFlag": "3",
+        "status":"Quality",
+        "newstatus":"OldQuality",
+        "updatestatus":"Purchase"
+
+      },
+      {
+        "rolename": "Purchase manager",
+         "RoleFlag": "4",
+        "status":"Purchase",
+        "newstatus":"OldPurchase",
+        "updatestatus":"Confirm"
+      }
+    ]
+  },
+    {
+    "flowbutton": [
+      "Gate Accept",
+      "Physical Inspection",
+      "Quality Inspection",
+      "Confirm Purchase"
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="import" href="../../bower_components/iron-a11y-keys/iron-a11y-keys.html">
+<dom-module id="vehicleinfo-page" on-keypress="{{keypress}}">
+  <template>
+    <style is="custom-style">
+      .card{
+        @apply(--layout-vertical);
+        position: relative;
+      //background-color: rgb(255, 255, 255);
+        color: black;
+        width: 80%;
+        left: 10%;
+        margin-top:2%;
+      }
+      .driver{
+        @apply(--layout-horizontal);
+      }
+      .owner{
+        @apply(--layout-horizontal);
+      }
+      paper-input{
+        text-align: left;
+        width: 35%;
+      }
+      paper-button{
+        text-align: center;
+        width: 35%;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 5px 5px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 10px;
+        background-color: #3d6868;
+        color: white;
+        margin-top: 4%;
+      }
+      .topbanner{
+        @apply(--layout-horizontal);
+        margin-left:55%;
+        width: 50%;
+        margin-top: -5%;
+      }
+      .datetitle{
+        margin-left: 78%;
+      }
+      #datetitle{
+        font-size: 13px;
+        color: blue;
+      }
+      #driverno,#ownerphone{
+        margin-left: 5%;
+      }
+
+    </style>
+    <iron-a11y-keys target="[[_target]]" keys="enter" on-keys-pressed="_test"></iron-a11y-keys>
+
+    <div class="card">
+
+      <div class="driver">
+        <paper-input label="Driver Name" name="drivername" value="{{drivername}}" required  id="drivername" error-message="Enter driver name"></paper-input>
+        <paper-input label="Driver Number" name="driverno" value="{{driverno}}" required  id="driverno" error-message="Enter driver no"></paper-input>
+      </div>
+      <div class="owner">
+        <paper-input label="Owner Name" name="ownername" value="{{ownername}}" required  id="ownername" error-message="Enter ownername"></paper-input>
+        <paper-input label="Owner Number" name="ownerphone" value="{{ownerphone}}" required  id="ownerphone" error-message="Enter owner phno"></paper-input>
+      </div>
+      <paper-input label="Vehicle Number" name="vehicleno" value="{{vehicleno}}" required  id="vehicleno" error-message="Enter vehicle no"></paper-input>
+      <paper-input label="Transport Name" name="transportname" value="{{transportname}}" required  id="transportname" error-message="Enter Transport name"></paper-input>
+      <paper-input label="PAN" name="panno" value="{{panno}}" required  id="panno" error-message="Enter PAN no"></paper-input>
+      <paper-button on-click="next">Next</paper-button>
+    </div>
+
+  </template>
+  <script src="../../scripts/vehicleinfo-page.js">
+
+
+  </script>
+
+</dom-module>
